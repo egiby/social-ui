@@ -47,3 +47,19 @@ export function setPersonalInfo(token, name, birthday, info) {
         })
     });
 }
+
+const FOLLOWING_URL = '/api/users/{userId}/followings';
+export function getFollowings(userId, token) {
+    return fetch(API_URL + FOLLOWING_URL.replace('{userId}', userId), {
+        method: 'GET',
+        headers: getHeader(token)
+    });
+}
+
+const FOLLOWERS_URL = '/api/users/{userId}/followers';
+export function getFollowers(userId, token) {
+    return fetch(API_URL + FOLLOWERS_URL.replace('{userId}', userId), {
+        method: 'GET',
+        headers: getHeader(token)
+    });
+}
